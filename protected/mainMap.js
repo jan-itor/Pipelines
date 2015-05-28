@@ -138,13 +138,32 @@ var map;
                         // Стандартный набор кнопок
                     .add('mapTools', {left: 35, top: 5})
                     .add(searchControl, {left: 140, top: 5});
-                myMap.balloon.open(coords, "Чтобы выбрать координаты объекта - кликните по нему на карте!", {
+                myMap.balloon.open(coords, "Чтобы поставить метку - просто кликните по карте", {
                         // Опция: не показываем кнопку закрытия.
                         closeButton: true,
                         maxWidth: 200
                 });
+                myMap.events.add("click",
+    function(e) {
+        myMap.balloon.open(
+            // Позиция балуна
+            e.get("coordPosition"), {
+                // Свойства балуна:
+                // контент балуна
+                contentBody: "Значение: " +
+                e.get("coordPosition")
+            }   
+        )
+ var succ=myMap.geoObjects.add(new ymaps.Placemark(e.get("coordPosition")));
+ if(succ) {
+     alert('Метка успешно добавлена');
+ };
+ myMap.balloon.close();
+    }
+);
+//Рассмотреть позже подобный вариант:
 //Запрос данных и вывод маркеров на карту
-jQuery.getJSON("vivodpointsmap.php",
+/*jQuery.getJSON("index.php",
 function(json){
 for (i = 0; i < json.markers.length; i++) {
 var placemark=new ymaps.Placemark(new YMaps.GeoPoint(json.markers[i].lat,json.markers[i].lng), {style: "default#redSmallPoint"});
@@ -160,7 +179,7 @@ var myLayout = function (geoPoint) {
    this.onAddToParent = function (parent) {
         $element.find('#submit').bind('click', function () {
               YMaps.jQuery.ajax({
-                  url: 'addpoint.php',
+                  url: 'PointController.php',
                   data: {
                        namepoint: $element.find('#name')[0].value,
 					   descriptpoint: $element.find('#descriptpoint')[0].value,
@@ -198,4 +217,4 @@ YMaps.Events.observe(map, map.Events.Click, function (map, e) {
      map.openBalloon(e.getCoordPoint(), new myLayout(e.getCoordPoint()));
 });
  
-} 
+} */}

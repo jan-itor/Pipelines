@@ -1,5 +1,6 @@
 <head>
     <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script src="http://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
     </head>
 <?php
 
@@ -9,16 +10,28 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
+        'theme'=>'freshy2',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Pipelines',
-
+	'name'=>'Информационная система хранения экспериментальных данных',
+        'language'=>'ru',
 	// preloading 'log' component
 	'preload'=>array('log'),
-
+        'aliases' => array(    
+        // yiistrap configuration
+        'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'), // change if necessary
+        // yiiwheels configuration
+            'vendor.twbs.bootstrap.dist' => realpath(__DIR__ . '/../extensions/bootstrap'),
+        'yiiwheels' => realpath(__DIR__ . '/../extensions/yiiwheels'), // change if necessary
+    ),
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+            'bootstrap.helpers.TbHtml',
+            'bootstrap.helpers.TbArray',
+        'bootstrap.behaviors.TbWidget',
+        'bootstrap.widgets.*',
+            'bootstrap.helpers.*'
 	),
 
 	'modules'=>array(
@@ -28,6 +41,7 @@ return array(
 			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+                    'generatorPaths' => array('bootstrap.gii'),
 		),
 		
 	),
@@ -38,6 +52,14 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+            // yiistrap configuration
+        'bootstrap' => array(
+            'class' => 'bootstrap.components.TbApi',
+        ),
+        // yiiwheels configuration
+        'yiiwheels' => array(
+            'class' => 'yiiwheels.YiiWheels',   
+        ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -87,6 +109,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'pipelines',
+		'adminEmail'=>'andrey06945@gmail.com',
 	),
 );
