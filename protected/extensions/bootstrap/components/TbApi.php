@@ -29,74 +29,54 @@ class TbApi extends CApplicationComponent
     const PLUGIN_TYPEAHEAD = 'typeahead';
 
     /**
-     * @var int static counter, used for determining script identifiers.
+     * @var int static counter, used for determining script identifiers
      */
     public static $counter = 0;
-
-    /**
-     * @var string path to Bootstrap assets (will default to vendor/twbs/bootstrap/dist).
-     */
-    public $bootstrapPath;
 
     /**
      * @var bool whether we should copy the asset file or directory even if it is already published before.
      */
     public $forceCopyAssets = false;
 
-    /**
-     * @var string base URL to Bootstrap CDN - set this if you wish to use Bootstrap though a CDN.
-     * @see http://getbootstrap.com/getting-started/#download-cdn
-     */
-    public $cdnUrl;
-
     private $_assetsUrl;
-    private $_bootstrapUrl;
-
-    /**
-     * Initializes this component.
-     */
-    public function init()
-    {
-        parent::init();
-        if ($this->bootstrapPath === null) {
-            $this->bootstrapPath = Yii::getPathOfAlias('vendor.twbs.bootstrap.dist');
-        }
-    }
 
     /**
      * Registers the Bootstrap CSS.
      * @param string $url the URL to the CSS file to register.
-     * @param string $media the media type (defaults to 'screen').
+     * @param string $media the media type.
      */
-    public function registerCoreCss($url = null, $media = 'screen')
+    public function registerCoreCss($url = null, $media = '')
     {
         if ($url === null) {
             $fileName = YII_DEBUG ? 'bootstrap.css' : 'bootstrap.min.css';
-            $url = $this->getBootstrapUrl() . '/css/' . $fileName;
+            $url = $this->getAssetsUrl() . '/css/' . $fileName;
         }
-        Yii::app()->getClientScript()->registerCssFile($url, $media);
+        Yii::app()->clientScript->registerCssFile($url, $media);
     }
 
     /**
-     * Registers the Bootstrap theme CSS.
+     * Registers the responsive Bootstrap CSS.
      * @param string $url the URL to the CSS file to register.
      * @param string $media the media type (defaults to 'screen').
      */
-    public function registerThemeCss($url = null, $media = 'screen')
+    public function registerResponsiveCss($url = null, $media = 'screen')
     {
         if ($url === null) {
-            $fileName = YII_DEBUG ? 'bootstrap-theme.css' : 'bootstrap-theme.min.css';
-            $url = $this->getBootstrapUrl() . '/css/' . $fileName;
+            $fileName = YII_DEBUG ? 'bootstrap-responsive.css' : 'bootstrap-responsive.min.css';
+            $url = $this->getAssetsUrl() . '/css/' . $fileName;
         }
-        Yii::app()->getClientScript()->registerCssFile($url, $media);
+        /** @var CClientScript $cs */
+        $cs = Yii::app()->getClientScript();
+        $cs->registerMetaTag('width=device-width, initial-scale=1.0', 'viewport');
+        $cs->registerCssFile($url, $media);
     }
 
     /**
      * Registers the Yiistrap CSS.
      * @param string $url the URL to the CSS file to register.
-     * @param string $media the media type (default to 'screen').
+     * @param string $media the media type.
      */
-    public function registerYiistrapCss($url = null, $media = 'screen')
+    public function registerYiistrapCss($url = null, $media = '')
     {
         if ($url === null) {
             $fileName = YII_DEBUG ? 'yiistrap.css' : 'yiistrap.min.css';
@@ -106,22 +86,13 @@ class TbApi extends CApplicationComponent
     }
 
     /**
-     * Fixes panning and zooming on mobile devices.
-     * @see http://getbootstrap.com/css/#overview-mobile
-     */
-    public function fixPanningAndZooming()
-    {
-        Yii::app()->getClientScript()->registerMetaTag('width=device-width, initial-scale=1.0', 'viewport');
-    }
-
-    /**
      * Registers all Bootstrap CSS files.
      */
     public function registerAllCss()
     {
         $this->registerCoreCss();
+        $this->registerResponsiveCss();
         $this->registerYiistrapCss();
-        $this->fixPanningAndZooming();
     }
 
     /**
@@ -133,7 +104,7 @@ class TbApi extends CApplicationComponent
     {
         if ($url === null) {
             $fileName = YII_DEBUG ? 'bootstrap.js' : 'bootstrap.min.js';
-            $url = $this->getBootstrapUrl() . '/js/' . $fileName;
+            $url = $this->getAssetsUrl() . '/js/' . $fileName;
         }
         /** @var CClientScript $cs */
         $cs = Yii::app()->getClientScript();
@@ -176,7 +147,9 @@ class TbApi extends CApplicationComponent
      */
     public function registerPopover($selector = 'body', $options = array())
     {
-        TbArray::defaultValue('selector', 'a[rel=popover]', $options);
+        if (!isset($options['selector'])) {
+            $options['selector'] = 'a[rel=popover]';
+        }
         $this->registerPlugin(self::PLUGIN_POPOVER, $selector, $options);
     }
 
@@ -188,7 +161,9 @@ class TbApi extends CApplicationComponent
      */
     public function registerTooltip($selector = 'body', $options = array())
     {
-        TbArray::defaultValue('selector', 'a[rel=tooltip]', $options);
+        if (!isset($options['selector'])) {
+            $options['selector'] = 'a[rel=tooltip]';
+        }
         $this->registerPlugin(self::PLUGIN_TOOLTIP, $selector, $options);
     }
 
@@ -229,37 +204,18 @@ class TbApi extends CApplicationComponent
     }
 
     /**
-     * Returns the url to the published Bootstrap folder, or the CDN if applicable.
-     * @return string the url.
-     * @throws Exception
-     */
-    protected function getBootstrapUrl()
-    {
-        if (!isset($this->_bootstrapUrl)) {
-            if (isset($this->cdnUrl)) {
-                $this->_bootstrapUrl = $this->cdnUrl;
-            } else {
-                if (($path = Yii::getPathOfAlias($this->bootstrapPath)) !== false) {
-                    $this->bootstrapPath = $path;
-                } else if ($this->bootstrapPath === false) {
-                    throw new Exception("Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.");
-                }
-                $this->_bootstrapUrl = Yii::app()->assetManager->publish($this->bootstrapPath, false, -1, $this->forceCopyAssets);
-            }
-        }
-        return $this->_bootstrapUrl;
-    }
-
-    /**
-     * Returns the url to the published folder that contains the assets for this extension.
+     * Returns the url to the published assets folder.
      * @return string the url.
      */
     protected function getAssetsUrl()
     {
-        if (!isset($this->_assetsUrl)) {
-            $assetPath = dirname(__DIR__) . '/assets';
-            $this->_assetsUrl = Yii::app()->assetManager->publish($assetPath, false, -1, $this->forceCopyAssets);
+        if (isset($this->_assetsUrl)) {
+            return $this->_assetsUrl;
+        } else {
+            $assetsPath = Yii::getPathOfAlias('bootstrap.assets');
+            $assetsUrl = Yii::app()->assetManager->publish($assetsPath, false, -1, $this->forceCopyAssets);
+            return $this->_assetsUrl = $assetsUrl;
         }
-        return $this->_assetsUrl;
     }
+
 }

@@ -1,8 +1,19 @@
-<?php
+<?php echo TbHtml::textFieldControlGroup('text', '', array(
+    'label' => 'Название',
+    'help' => 'Username is taken',
+    'color' => TbHtml::INPUT_COLOR_INFO,
+)); 
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+     echo TbHtml::textFieldControlGroup('text', '', array(
+    'label' => 'Подсказка',
+    'help' => 'Username is taken',
+    'color' => TbHtml::INPUT_COLOR_INFO,
+)); 
+        
+     echo TbHtml::textFieldControlGroup('text', '', array(
+    'label' => 'Input with info',
+    'help' => 'Username is taken',
+    'color' => TbHtml::INPUT_COLOR_INFO,
+)); ?>
+
 

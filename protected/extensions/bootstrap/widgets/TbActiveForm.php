@@ -9,8 +9,6 @@
 
 /**
  * Bootstrap active form widget.
- *
- * @method null copyId() via TbWidget
  */
 class TbActiveForm extends CActiveForm
 {
@@ -30,18 +28,11 @@ class TbActiveForm extends CActiveForm
      * @var string the CSS class name for success messages.
      */
     public $successMessageCssClass = 'success';
+
     /**
      * @var boolean whether to hide inline errors. Defaults to false.
      */
     public $hideInlineErrors = false;
-    /**
-     * @var string class width label for horizontal forms.
-     */
-    public $labelWidthClass = 'col-sm-2';
-    /**
-     * @var string class width control for horizontal forms.
-     */
-    public $controlWidthClass = 'col-sm-10';
 
     /**
      * Initializes the widget.
@@ -93,9 +84,7 @@ class TbActiveForm extends CActiveForm
             'model' => get_class($model),
             'name' => $attribute,
             'enableAjaxValidation' => $enableAjaxValidation,
-            'inputContainer' => 'div.form-group', // Bootstrap requires this
-            'errorCssClass' => 'has-error',
-            'successCssClass' => 'has-success',
+            'inputContainer' => 'div.control-group', // Bootstrap requires this
         );
         $optionNames = array(
             'validationDelay',
@@ -118,13 +107,12 @@ class TbActiveForm extends CActiveForm
             $option['status'] = 1;
         }
         if ($enableClientValidation) {
-            $validators = (array) TbArray::popValue('clientValidation', $htmlOptions, array());
+            $validators = TbArray::getValue('clientValidation', $htmlOptions, array());
             $attributeName = $attribute;
             if (($pos = strrpos($attribute, ']')) !== false && $pos !== strlen($attribute) - 1) // e.g. [a]name
             {
                 $attributeName = substr($attribute, $pos + 1);
             }
-            /** @var CValidator $validator */
             foreach ($model->getValidators($attributeName) as $validator) {
                 if ($validator->enableClientValidation) {
                     if (($js = $validator->clientValidateAttribute($model, $attributeName)) != '') {
@@ -133,8 +121,10 @@ class TbActiveForm extends CActiveForm
                 }
             }
             if ($validators !== array()) {
-                $validators = implode("\n", $validators);
-                $option['clientValidation'] = "js:function(value, messages, attribute) {\n$validators\n}";
+                $option['clientValidation'] = "js:function(value, messages, attribute) {\n" . implode(
+                        "\n",
+                        $validators
+                    ) . "\n}";
             }
         }
         $html = TbHtml::error($model, $attribute, $htmlOptions);
@@ -699,21 +689,6 @@ class TbActiveForm extends CActiveForm
     }
 
     /**
-     * Generates a control group with a custom (pre-rendered) input for a model attribute.
-     * @param string $input the rendered input.
-     * @param CModel $model the data model.
-     * @param string $attribute the attribute name.
-     * @param array $htmlOptions additional HTML attributes.
-     * @return string the generated control group.
-     * @see TbHtml::activeControlGroup
-     */
-    public function customControlGroup($input, $model, $attribute, $htmlOptions = array())
-    {
-        $htmlOptions['input'] = $input;
-        return $this->createControlGroup(TbHtml::INPUT_TYPE_CUSTOM, $model, $attribute, $htmlOptions);
-    }
-
-    /**
      * Generates a control group for a model attribute.
      * @param string $type the input type.
      * @param CModel $model the data model.
@@ -727,20 +702,6 @@ class TbActiveForm extends CActiveForm
     {
         $htmlOptions = $this->processControlGroupOptions($model, $attribute, $htmlOptions);
         return TbHtml::activeControlGroup($type, $model, $attribute, $htmlOptions, $data);
-    }
-
-    /**
-     * Generates the form actions container (i.e. submit button, etc).
-     * @param mixed $actions the actions.
-     * @param array $htmlOptions additional HTML attributes.
-     * @return string
-     */
-    public function createFormActions($actions, $htmlOptions = array())
-    {
-        $htmlOptions['formLayout'] = $this->layout;
-        $htmlOptions['labelWidthClass'] = TbArray::getValue('labelWidthClass', $htmlOptions, $this->labelWidthClass);
-        $htmlOptions['controlWidthClass'] = TbArray::getValue('controlWidthClass', $htmlOptions, $this->controlWidthClass);
-        return TbHtml::formActions($actions, $htmlOptions);
     }
 
     /**
@@ -767,11 +728,6 @@ class TbActiveForm extends CActiveForm
         $helpOptions = TbArray::popValue('helpOptions', $options, array());
         $helpOptions['type'] = $this->helpType;
         $options['helpOptions'] = $helpOptions;
-        if (!TbArray::getValue('formLayout', $options, false)) {
-            $options['formLayout'] = $this->layout;
-        }
-        $options['labelWidthClass'] = TbArray::getValue('labelWidthClass', $options, $this->labelWidthClass);
-        $options['controlWidthClass'] = TbArray::getValue('controlWidthClass', $options, $this->controlWidthClass);
         return $options;
     }
 }

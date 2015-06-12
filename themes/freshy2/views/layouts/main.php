@@ -10,18 +10,16 @@
     <?php //endif; ?>
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/yii_style.css" media="screen, projection" />
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <?php Yii::app()->bootstrap->register(); ?>
 </head>
 <body>
 <div id="body">
     <div id="header">
         <div class="container">
-            <div id="title">
+            <div class="title_im">
                 <h1>
-                    <?php echo CHtml::link(CHtml::encode(Yii::app()->name), $this->createUrl('')) ?>
-                </h1>
-                <div class="description">
-                    <small><?php echo Yii::app()->params['description']?></small>
-                </div>
+                    <a href='index.php'><img src="images/logo.png"  alt="Водоканал" /></a>
+                </h1>                
             </div>
             <div id="header_image">
                 <div id="menu">
@@ -30,9 +28,9 @@
                             'items'=>array(
                                     array('label'=>'Главная страница', 'url'=>array('/site/index')),
                                     array('label'=>'Карта Севастополя', 'url'=>array('/point/index')),
-                                    array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about')),
-                                    array('label'=>'Для контактов', 'url'=>array('/site/contact')),
-                                    array('label'=>'Регистрация?', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                                    array('label'=>'Справка', 'url'=>array('/site/page', 'view'=>'about')),
+                                    array('label'=>'Контакты', 'url'=>array('/site/contact')),
+                                    //array('label'=>'Регистрация?', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                                     array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                             ),
                         )); ?>

@@ -8,11 +8,15 @@
 
 /**
  * Bootstrap breadcrumb widget.
- * @see http://getbootstrap.com/components/#breadcrumbs
+ * @see http://twitter.github.com/bootstrap/components.html#breadcrumbs
  * @package bootstrap.widgets
  */
 class TbBreadcrumb extends CWidget
 {
+    /**
+     * @var string the divider between links in the breadcrumbs.
+     */
+    public $divider = '/';
     /**
      * @var boolean whether to HTML encode the link labels.
      */
@@ -35,6 +39,14 @@ class TbBreadcrumb extends CWidget
     public $links = array();
 
     /**
+     * Initializes the widget.
+     */
+    public function init()
+    {
+        $this->htmlOptions['divider'] = $this->divider;
+    }
+
+    /**
      * Runs the widget.
      */
     public function run()
@@ -47,7 +59,7 @@ class TbBreadcrumb extends CWidget
                 $links[$label] = $this->homeUrl !== null ? $this->homeUrl : Yii::app()->homeUrl;
             }
             foreach ($this->links as $label => $url) {
-                if (is_string($label)) {
+                if (is_string($label) || is_array($url)) {
                     if ($this->encodeLabel) {
                         $label = CHtml::encode($label);
                     }

@@ -2,8 +2,6 @@
 /**
  * TbModal class file.
  * @author Antonio Ramirez <ramirez.cobos@gmail.com>
- * @author Christoffer Niska <christoffer.niska@gmail.com>
- * @author Eric Nishio <eric.nishio@nordsoftware.com>
  * @copyright Copyright &copy; Christoffer Niska 2013-
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @package bootstrap.widgets
@@ -35,11 +33,6 @@ class TbModal extends CWidget
      * @var boolean indicates whether the modal should use transitions. Defaults to 'true'.
      */
     public $fade = true;
-
-    /**
-     * @var string sets what size the modal should have based on the modal-sm or modal-lg classes mentioned in bootstrap docs since 3.1.1. Defaults to '', meaning that no new class will be added.
-     */
-    public $size = TbHtml::MODAL_SIZE_DEFAULT;
 
     /**
      * @var bool $keyboard, closes the modal when escape key is pressed.
@@ -126,7 +119,7 @@ class TbModal extends CWidget
         TbArray::defaultValue('role', 'dialog', $this->htmlOptions);
         TbArray::defaultValue('tabindex', '-1', $this->htmlOptions);
 
-        TbHtml::addCssClass('modal', $this->htmlOptions);
+        TbHtml::addCssClass('modal hide', $this->htmlOptions);
         if ($this->fade) {
             TbHtml::addCssClass('fade', $this->htmlOptions);
         }
@@ -137,15 +130,6 @@ class TbModal extends CWidget
 
         $this->initOptions();
         $this->initEvents();
-
-        echo TbHtml::openTag('div', $this->htmlOptions) . PHP_EOL;
-        echo TbHtml::openTag('div', array('class' => 'modal-dialog' . $this->size)) . PHP_EOL;
-        echo TbHtml::openTag('div', array('class' => 'modal-content')) . PHP_EOL;
-        echo TbHtml::modalHeader($this->header);
-
-        if (!isset($this->content)) {
-            ob_start();
-        }
     }
 
     /**
@@ -171,7 +155,7 @@ class TbModal extends CWidget
      */
     public function initOptions()
     {
-        if ($remote = TbArray::popValue('remote', $this->options)) {
+        if (($remote = $this->remote) || ($remote = TbArray::popValue('remote', $this->options))) {
             $this->options['remote'] = CHtml::normalizeUrl($remote);
         }
 
@@ -185,14 +169,7 @@ class TbModal extends CWidget
      */
     public function run()
     {
-        if (!isset($this->content)) {
-            $this->content = ob_get_clean();
-        }
-        echo TbHtml::modalBody($this->content);
-        echo TbHtml::modalFooter($this->footer);
-        echo '</div>' . PHP_EOL;
-        echo '</div>' . PHP_EOL;
-        echo '</div>' . PHP_EOL;
+        $this->renderModal();
         $this->renderButton();
         $this->registerClientScript();
     }
@@ -218,6 +195,54 @@ class TbModal extends CWidget
     }
 
     /**
+     * Renders the modal markup
+     */
+    public function renderModal()
+    {
+        echo TbHtml::openTag('div', $this->htmlOptions) . PHP_EOL;
+
+        $this->renderModalHeader();
+        $this->renderModalBody();
+        $this->renderModalFooter();
+
+        echo '</div>' . PHP_EOL;
+    }
+
+    /**
+     * Renders the header HTML markup of the modal
+     */
+    public function renderModalHeader()
+    {
+        echo '<div class="modal-header">' . PHP_EOL;
+        if ($this->closeText) {
+            echo TbHtml::closeButton($this->closeText, array('data-dismiss' => 'modal'));
+        }
+        echo TbHtml::tag('h3', array(), $this->header);
+        echo '</div>' . PHP_EOL;
+    }
+
+    /**
+     * Renders the HTML markup for the body of the modal
+     */
+    public function renderModalBody()
+    {
+        echo '<div class="modal-body">' . PHP_EOL;
+        echo $this->content;
+        echo '</div>' . PHP_EOL;
+    }
+
+    /**
+     * Renders the HTML markup for the footer of the modal
+     */
+    public function renderModalFooter()
+    {
+
+        echo '<div class="modal-footer">' . PHP_EOL;
+        echo $this->footer;
+        echo '</div>' . PHP_EOL;
+    }
+
+    /**
      * Registers necessary client scripts.
      */
     public function registerClientScript()
@@ -232,4 +257,5 @@ class TbModal extends CWidget
 
         $this->registerEvents($selector, $this->events);
     }
+
 }

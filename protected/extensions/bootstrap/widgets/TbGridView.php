@@ -25,7 +25,7 @@ class TbGridView extends CGridView
      * @var array the configuration for the pager.
      * Defaults to <code>array('class'=>'ext.bootstrap.widgets.TbPager')</code>.
      */
-    public $pager = array('class' => '\TbPager');
+    public $pager = array('class' => 'bootstrap.widgets.TbPager');
     /**
      * @var string the URL of the CSS file used by this grid view.
      * Defaults to false, meaning that no CSS will be included.
@@ -69,7 +69,7 @@ class TbGridView extends CGridView
     {
         foreach ($this->columns as $i => $column) {
             if (is_array($column) && !isset($column['class'])) {
-                $this->columns[$i]['class'] = '\TbDataColumn';
+                $this->columns[$i]['class'] = 'bootstrap.widgets.TbDataColumn';
             }
         }
         parent::initColumns();

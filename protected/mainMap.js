@@ -1,4 +1,14 @@
-
+$(document).ready(function(){
+    PopUpHide();
+});
+function PopUpShow(){
+    $("#popup1")
+            .show()            
+    ;
+}
+function PopUpHide(){
+    $("#popup1").hide();
+}
 var map;
  
  ymaps.ready(init);
@@ -25,79 +35,80 @@ var map;
                         // Опция: не показываем кнопку закрытия.
                         closeButton: true,
                         maxWidth: 200
-                });
-                myMap.events.add("click",
-    function(e) {
+                })
+                           
+   myMap.events.add("click",function(e) {
+        var coords=e.get("coordPosition");
         myMap.balloon.open(
             // Позиция балуна
-            e.get("coordPosition"), {
+            coords, {
                 // Свойства балуна:
                 // контент балуна
-                contentBody: "Значение: " +
-                e.get("coordPosition")
+                contentBody: 
+                        '<label>Название:</label> <input type="text" class="input-medium" name="icon_text" /><br />\
+                        <label>Подсказка:</label> <input type="text" class="input-medium" name="hint_text" /><br />\
+                        <label>Акустические портреты:</label> <input type="text" class="input-medium" name="balloon_text" /><br />\
+                        <button id="menu_button" type="submit" class="btn btn-success">Сохранить</button><br />\
+                         Координаты: ' + coords            
             }   
         )
- var succ=myMap.geoObjects.add(new ymaps.Placemark(e.get("coordPosition")));
- if(succ) {
-     alert('Метка успешно добавлена');
- };
- myMap.balloon.close();
+var point=new ymaps.Placemark(coords);
+$('#menu_button').click((function () {
+        iconText = $('input[name="icon_text"]').val(),
+	hintText = $('input[name="hint_text"]').val(),
+	balloonText =$('input[name="balloon_text"]').val();
+          alert(hintText); 
+          $.ajax({
+     url:"index.php?r=point/ajax",
+    // dataType: 'json',
+     type:"POST",
+     data: {icontext:iconText,
+    hinttext : hintText,
+    balloontext : balloonText,
+    lat : coords[0].toPrecision(6), 
+    lon : coords[1].toPrecision(6)} 
+ });
+//Добавляем метку на карту	
+   myMap.geoObjects.add(point);
+ 
+//Изменяем свойства метки и балуна
+point.properties.set({
+	iconContent: iconText,
+	hintContent: hintText,
+	balloonContent:'Акустические портреты:'+'<br>'+balloonText+'<br>'+'<a href="javascript:PopUpShow()">Посмотреть подробнее о метке</a>'							
+});
+myMap.balloon.close();
+                }));
+
+
     }
 );
-//Рассмотреть позже подобный вариант:
-//Запрос данных и вывод маркеров на карту
-/*jQuery.getJSON("index.php",
-function(json){
-for (i = 0; i < json.markers.length; i++) {
-var placemark=new ymaps.Placemark(new YMaps.GeoPoint(json.markers[i].lat,json.markers[i].lng), {style: "default#redSmallPoint"});
-placemark.description= '<div style="color:#ff0303;font-weight:bold">'+json.markers[i].name+'</div>';
-placemark.description = placemark.description+'<strong>Описание:</strong> '+json.markers[i].descriptions;
-map.addOverlay(placemark);
-}
- 
-});
- 
-var myLayout = function (geoPoint) {
-   var $element = YMaps.jQuery('<div>Название: <input type="text" id="name"/><br />Описание: <textarea id="descriptpoint" cols="20" rows="5"></textarea><br /><input type="button" value="Добавить" id="submit"/></div>');
-   this.onAddToParent = function (parent) {
-        $element.find('#submit').bind('click', function () {
-              YMaps.jQuery.ajax({
-                  url: 'PointController.php',
-                  data: {
-                       namepoint: $element.find('#name')[0].value,
-					   descriptpoint: $element.find('#descriptpoint')[0].value,
-                       pcoord: geoPoint.toString()
-                  },
- 
-            dataType: 'json',
-                  // Это функция обработки ответа сервера
-                  success: function (res) {
-                       if (res.success) {
-                             // если точка сохранилась, закрываем балун
-                             map.closeBalloon();
-                             // и ставим точку на карту
-                             map.addOverlay(new YMaps.Placemark(geoPoint));
- 
-                       } else {
-                             // иначе выдаем сообщение об ошибке
-                            // YMaps.jQuery('<p style="color:red">' + e.message + '</p>').appendTo("#scriptmes");
-							 YMaps.jQuery("#scriptmes").html('<p style="color:red">' + e.message + '</p>');
-                       }
-                  }
-              });
- 
-        });
-        $element.appendTo(parent);
-   };
-   this.onRemoveFromParent = function () {
-        $element.remove();
-   };
- 
-   this.update = function () {};
-}
- 
-YMaps.Events.observe(map, map.Events.Click, function (map, e) {
-     map.openBalloon(e.getCoordPoint(), new myLayout(e.getCoordPoint()));
-});
- 
-} */}
+$('#putin').click((function(){
+    $.getJSON("index.php?r=point/json",
+    function(json){
+        for(i=0;i<json.markers.length;i++){
+          var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
+                    // Свойства
+                    iconContent: json.markers[i].icontext, 
+					hintContent: json.markers[i].hinttext,
+                    balloonContentBody: json.markers[i].balloontext                   
+					});
+
+				// Добавляем метку на карту
+				myMap.geoObjects.add(myPlacemark);  
+        }
+    }
+    );
+    alert('JSON окончена');
+}));
+
+$('#redit').click((function()
+{
+   location.href = $(this).attr('data-href');
+}));
+
+$('#closerko').click((function()
+{
+   PopUpHide();
+}));
+        }

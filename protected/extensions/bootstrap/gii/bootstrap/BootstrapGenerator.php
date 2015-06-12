@@ -8,9 +8,8 @@
  */
 
 Yii::import('gii.generators.crud.CrudGenerator');
-Yii::import('\BootstrapCode');
 
 class BootstrapGenerator extends CrudGenerator
 {
-    public $codeModel = 'BootstrapCode';
+    public $codeModel = 'bootstrap.gii.bootstrap.BootstrapCode';
 }

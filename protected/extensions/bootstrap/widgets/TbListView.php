@@ -15,22 +15,14 @@ Yii::import('zii.widgets.CListView');
 class TbListView extends CListView
 {
     /**
-     * @var string the CSS class name for the pager container. Defaults to 'list-pager'.
+     * @var string the CSS class name for the pager container. Defaults to 'pagination'.
      */
-    public $pagerCssClass = 'list-pager';
-    /**
-     * @var string the CSS class name for the summary container. Defaults to 'list-summary'.
-     */
-    public $summaryCssClass = 'list-summary';
-    /**
-     * @var string the CSS class name for the items container. Defaults to 'list-items'.
-     */
-    public $itemsCssClass = 'list-items';
+    public $pagerCssClass = 'pagination';
     /**
      * @var array the configuration for the pager.
-     * Defaults to <code>array('class'=>'\TbPager')</code>.
+     * Defaults to <code>array('class'=>'ext.bootstrap.widgets.TbPager')</code>.
      */
-    public $pager = array('class' => '\TbPager');
+    public $pager = array('class' => 'bootstrap.widgets.TbPager');
     /**
      * @var string the URL of the CSS file used by this detail view.
      * Defaults to false, meaning that no CSS will be included.
@@ -39,7 +31,7 @@ class TbListView extends CListView
     /**
      * @var string the template to be used to control the layout of various sections in the view.
      */
-    public $template = "<div class=\"row\"><div class=\"col-md-offset-6 col-md-6\">{sorter}</div></div>{items}\n<div class=\"row\"><div class=\"col-md-6\">{pager}</div><div class=\"col-md-6\">{summary}</div></div>";
+    public $template = "{items}\n<div class=\"row-fluid\"><div class=\"span6\">{pager}</div><div class=\"span6\">{summary}</div></div>";
 
     /**
      * Renders the empty message when there is no data.

@@ -880,3 +880,625 @@ REQUEST_URI=/pipelines/index.php
 in /var/www/pipelines/themes/freshy2/views/layouts/main.php (56)
 in /var/www/pipelines/themes/freshy2/views/layouts/column1.php (36)
 in /var/www/pipelines/protected/controllers/SiteController.php (32)
+2015/06/10 03:10:38 [error] [exception.CException] exception 'CException' with message 'Не определено свойство "Points.stylePlacemark".' in /var/www/Yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/Yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('stylePlacemark')
+#1 /var/www/Yii/framework/validators/CRequiredValidator.php(58): CActiveRecord->__get('stylePlacemark')
+#2 /var/www/Yii/framework/validators/CValidator.php(213): CRequiredValidator->validateAttribute(Object(Points), 'stylePlacemark')
+#3 /var/www/Yii/framework/base/CModel.php(159): CValidator->validate(Object(Points), NULL)
+#4 /var/www/Yii/framework/db/ar/CActiveRecord.php(805): CModel->validate(NULL)
+#5 /var/www/pipelines/protected/controllers/PointController.php(15): CActiveRecord->save()
+#6 /var/www/Yii/framework/web/actions/CInlineAction.php(49): PointController->actionIndex()
+#7 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#11 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#12 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/pipelines/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php?XDEBUG_SESSION_START=netbeans-xdebug
+---
+2015/06/10 03:17:56 [error] [php] Undefined variable: models (/var/www/pipelines/protected/controllers/PointController.php:25)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (25)
+in /var/www/pipelines/index.php (13)
+2015/06/10 03:18:53 [error] [php] Undefined variable: models (/var/www/pipelines/protected/controllers/PointController.php:26)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (26)
+in /var/www/pipelines/index.php (13)
+2015/06/10 03:18:55 [error] [php] Undefined variable: models (/var/www/pipelines/protected/controllers/PointController.php:26)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (26)
+in /var/www/pipelines/index.php (13)
+2015/06/10 03:19:10 [error] [exception.CException] exception 'CException' with message 'В классе Points и его поведениях не найден метод или замыкание с именем "findAl".' in /var/www/Yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/Yii/framework/db/ar/CActiveRecord.php(227): CComponent->__call('findAl', Array)
+#1 /var/www/pipelines/protected/controllers/PointController.php(7): CActiveRecord->__call('findAl', Array)
+#2 /var/www/pipelines/protected/controllers/PointController.php(7): Points->findAl()
+#3 /var/www/Yii/framework/web/actions/CInlineAction.php(49): PointController->actionIndex()
+#4 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/10 03:19:19 [error] [php] Undefined variable: points (/var/www/pipelines/protected/controllers/PointController.php:26)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (26)
+in /var/www/pipelines/index.php (13)
+2015/06/10 03:19:21 [error] [php] Undefined variable: points (/var/www/pipelines/protected/controllers/PointController.php:26)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (26)
+in /var/www/pipelines/index.php (13)
+2015/06/10 04:42:41 [error] [php] Undefined variable: models (/var/www/pipelines/protected/controllers/PointController.php:33)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/view
+in /var/www/pipelines/protected/controllers/PointController.php (33)
+in /var/www/pipelines/index.php (13)
+2015/06/11 22:33:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "point/index".' in /var/www/Yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#1 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/pipelines/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/11 22:46:17 [error] [php] Undefined variable: newPoint (/var/www/pipelines/protected/controllers/PointController.php:18)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (18)
+in /var/www/pipelines/index.php (13)
+2015/06/11 22:47:11 [error] [php] Undefined variable: newPoint (/var/www/pipelines/protected/controllers/PointController.php:18)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/index
+in /var/www/pipelines/protected/controllers/PointController.php (18)
+in /var/www/pipelines/index.php (13)
+2015/06/12 16:25:29 [error] [exception.CException] exception 'CException' with message 'Псевдоним "ext.bootstrap.components.bootstrap" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/Yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/Yii/framework/YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 /var/www/Yii/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/Yii/framework/base/CModule.php(103): CModule->getComponent('bootstrap')
+#3 /var/www/pipelines/protected/components/Controller.php(26): CModule->__get('bootstrap')
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/12 16:25:57 [error] [exception.CException] exception 'CException' with message 'Псевдоним "bootstrap.components.bootstrap" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/Yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/Yii/framework/YiiBase.php(196): YiiBase::import('bootstrap.compo...', true)
+#1 /var/www/Yii/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/Yii/framework/base/CModule.php(103): CModule->getComponent('bootstrap')
+#3 /var/www/pipelines/protected/components/Controller.php(26): CModule->__get('bootstrap')
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/12 16:26:29 [error] [exception.CException] exception 'CException' with message 'Псевдоним "ext.bootstrap.components.bootstrap" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/Yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/Yii/framework/YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 /var/www/Yii/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/Yii/framework/base/CModule.php(103): CModule->getComponent('bootstrap')
+#3 /var/www/pipelines/protected/components/Controller.php(26): CModule->__get('bootstrap')
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/12 16:26:30 [error] [exception.CException] exception 'CException' with message 'Псевдоним "ext.bootstrap.components.bootstrap" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/Yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/Yii/framework/YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 /var/www/Yii/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/Yii/framework/base/CModule.php(103): CModule->getComponent('bootstrap')
+#3 /var/www/pipelines/protected/components/Controller.php(26): CModule->__get('bootstrap')
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/12 16:26:31 [error] [exception.CException] exception 'CException' with message 'Псевдоним "ext.bootstrap.components.bootstrap" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/Yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/Yii/framework/YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 /var/www/Yii/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/Yii/framework/base/CModule.php(103): CModule->getComponent('bootstrap')
+#3 /var/www/pipelines/protected/components/Controller.php(26): CModule->__get('bootstrap')
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/12 16:26:32 [error] [exception.CException] exception 'CException' with message 'Псевдоним "ext.bootstrap.components.bootstrap" неверен. Убедитесь, что он указывает на существующий PHP файл.' in /var/www/Yii/framework/YiiBase.php:322
+Stack trace:
+#0 /var/www/Yii/framework/YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 /var/www/Yii/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#2 /var/www/Yii/framework/base/CModule.php(103): CModule->getComponent('bootstrap')
+#3 /var/www/pipelines/protected/components/Controller.php(26): CModule->__get('bootstrap')
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php
+---
+2015/06/12 16:40:04 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/protected/components/Controller.php(26): TbApi->register()
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php?r=site/index
+---
+2015/06/12 16:40:36 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/protected/components/Controller.php(26): TbApi->register()
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php?r=site/index
+---
+2015/06/12 16:40:38 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/protected/components/Controller.php(26): TbApi->register()
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php?r=site/index
+---
+2015/06/12 16:40:39 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/protected/components/Controller.php(26): TbApi->register()
+#4 /var/www/Yii/framework/web/CController.php(306): Controller->beforeAction(Object(CInlineAction))
+#5 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#8 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#9 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/pipelines/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php?r=site/index
+---
+2015/06/12 16:41:32 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/PointController.php(9): CController->render('index', Array)
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): PointController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('point/index')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php?r=point/index
+HTTP_REFERER=http://localhost/pipelines/index.php?r=site/index
+---
+2015/06/12 16:41:38 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 16:42:17 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 16:43:20 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 16:43:21 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 16:43:22 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 16:43:22 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(11): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 16:45:12 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/themes/freshy2/views/layouts/main.php(56): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="page">...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="page">...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/themes/freshy2/views/layouts/column1.php(36): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php
+---
+2015/06/12 17:00:51 [error] [exception.Exception] exception 'Exception' with message 'Invalid Bootstrap path and CDN URL not set. Set vendor.twbs.bootstrap.dist alias or cdnUrl parameter in the configuration file.' in /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php:245
+Stack trace:
+#0 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(75): TbApi->getBootstrapUrl()
+#1 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(122): TbApi->registerCoreCss()
+#2 /var/www/pipelines/protected/extensions/bootstrap/components/TbApi.php(167): TbApi->registerAllCss()
+#3 /var/www/pipelines/protected/views/layouts/main.php(17): TbApi->register()
+#4 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#5 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#6 /var/www/Yii/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#7 /var/www/Yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 /var/www/Yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 /var/www/Yii/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /var/www/Yii/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /var/www/pipelines/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#12 /var/www/Yii/framework/web/CBaseController.php(126): require('/var/www/pipeli...')
+#13 /var/www/Yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/pipeli...', Array, true)
+#14 /var/www/Yii/framework/web/CController.php(784): CBaseController->renderFile('/var/www/pipeli...', Array, true)
+#15 /var/www/pipelines/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /var/www/Yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /var/www/Yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /var/www/Yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /var/www/Yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /var/www/Yii/framework/web/CWebApplication.php(282): CController->run('index')
+#21 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/index')
+#22 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /var/www/pipelines/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/pipelines/index.php?r=site/index
+HTTP_REFERER=http://localhost/pipelines/index.php?r=site/page&view=about
+---
+2015/06/12 19:58:02 [error] [php] Use of undefined constant icontext - assumed 'icontext' (/var/www/pipelines/protected/controllers/PointController.php:36)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/json
+in /var/www/pipelines/protected/controllers/PointController.php (36)
+in /var/www/pipelines/index.php (13)
+2015/06/12 19:59:25 [error] [php] Use of undefined constant icontext - assumed 'icontext' (/var/www/pipelines/protected/controllers/PointController.php:36)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/json
+in /var/www/pipelines/protected/controllers/PointController.php (36)
+in /var/www/pipelines/index.php (13)
+2015/06/12 20:05:39 [error] [php] Use of undefined constant icontext - assumed 'icontext' (/var/www/pipelines/protected/controllers/PointController.php:36)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/json
+in /var/www/pipelines/protected/controllers/PointController.php (36)
+in /var/www/pipelines/index.php (13)
+2015/06/12 20:06:49 [error] [php] Use of undefined constant icontext - assumed 'icontext' (/var/www/pipelines/protected/controllers/PointController.php:36)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/json
+in /var/www/pipelines/protected/controllers/PointController.php (36)
+in /var/www/pipelines/index.php (13)
+2015/06/12 20:09:10 [error] [php] Use of undefined constant icontext - assumed 'icontext' (/var/www/pipelines/protected/controllers/PointController.php:36)
+Stack trace:
+#0 /var/www/Yii/framework/web/CController.php(286): PointController->runAction()
+#1 /var/www/Yii/framework/web/CController.php(265): PointController->runActionWithFilters()
+#2 /var/www/Yii/framework/web/CWebApplication.php(282): PointController->run()
+#3 /var/www/Yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/Yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/pipelines/index.php(13): CWebApplication->run()
+REQUEST_URI=/pipelines/index.php?r=point/json
+in /var/www/pipelines/protected/controllers/PointController.php (36)
+in /var/www/pipelines/index.php (13)

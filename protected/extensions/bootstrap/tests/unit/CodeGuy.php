@@ -544,7 +544,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * @see Codeception\Module\CodeHelper::seeNodeNumChildren()
      * @return \Codeception\Maybe
      */
-    public function canSeeNodeNumChildren($node, $amount, $filter = null) {
+    public function canSeeNodeNumChildren($node, $amount) {
         $this->scenario->addStep(new \Codeception\Step\ConditionalAssertion('seeNodeNumChildren', func_get_args()));
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
@@ -562,7 +562,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * @see Codeception\Module\CodeHelper::seeNodeNumChildren()
      * @return \Codeception\Maybe
      */
-    public function seeNodeNumChildren($node, $amount, $filter = null) {
+    public function seeNodeNumChildren($node, $amount) {
         $this->scenario->addStep(new \Codeception\Step\Assertion('seeNodeNumChildren', func_get_args()));
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();

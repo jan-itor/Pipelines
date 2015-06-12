@@ -9,7 +9,7 @@
 
 /**
  * Bootstrap collapse widget.
- * @see http://getbootstrap.com/javascript/#collapse
+ * @see http://twitter.github.com/bootstrap/javascript.html#collapse
  */
 class TbCollapse extends CWidget
 {
