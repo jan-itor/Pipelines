@@ -1,10 +1,17 @@
 $(document).ready(function(){
     PopUpHide();
+    ChartHide();
 });
 function PopUpShow(){
-    $("#popup1")
-            .show()            
+    $("#popup1").show()            
     ;
+}
+function ChartShow(){
+    $("#popup1").hide();
+    $("#popup2").show();
+}
+function ChartHide(){
+    $("#popup2").hide();
 }
 function PopUpHide(){
     $("#popup1").hide();
@@ -13,6 +20,33 @@ var map;
  
  ymaps.ready(init);
         function init() {
+            $('#putin').click((function(){
+                   $.ajax({
+            type: "POST",
+            url: "index.php?r=point/json",
+            //dataType: "json",
+            error: function(df, fdf, er){
+                alert(er);
+            },
+            success: function (markers) {
+            var result=markers.replace(/(<([^>]+)>)/ig,"");
+                var res=JSON.parse(result);
+                console.log(res);
+                for(i=0;i<res.length;i++){
+          var myPlacemark = new ymaps.Placemark([res[i].lat,res[i].lon], {
+                    // Свойства
+                    iconContent: res[i].iconText, 
+		    hintContent: res[i].hintText,
+                    balloonContent: 'Название: '+res[i].iconText+'<br>'+'Подсказка: '+res[i].hintText+'<br>'+'Координаты: '+'<br>'+'Широта: '+res[i].lat+'; Долгота: '+res[i].lon+'<br>'+'<a href="javascript:PopUpShow()">Посмотреть подробнее о метке</a>'+res[i].balloonText                   
+					});
+
+				// Добавляем метку на карту
+				myMap.geoObjects.add(myPlacemark);  
+        }
+            }
+        });
+    alert('vualya, ebat`');
+}));
                 // Данные о местоположении, определённом по IP
                 var geolocation = ymaps.geolocation,
                 // координаты
@@ -75,7 +109,7 @@ $('#menu_button').click((function () {
 point.properties.set({
 	iconContent: iconText,
 	hintContent: hintText,
-	balloonContent:'Акустические портреты:'+'<br>'+balloonText+'<br>'+'<a href="javascript:PopUpShow()">Посмотреть подробнее о метке</a>'							
+	balloonContent:'Название: '+iconText+'<br>'+'Подсказка: '+hintText+'<br>'+'Координаты: '+'<br>'+'Широта: '+coords[0]+'; Долгота: '+coords[1]+'<br>'+'<a href="javascript:PopUpShow()">Посмотреть подробнее о метке</a>'							
 });
 myMap.balloon.close();
                 }));
@@ -83,30 +117,15 @@ myMap.balloon.close();
 
     }
 );
-$('#putin').click((function(){
-    $.getJSON("index.php?r=point/json",
-    function(json){
-        for(i=0;i<json.markers.length;i++){
-          var myPlacemark = new ymaps.Placemark([json.markers[i].lat,json.markers[i].lon], {
-                    // Свойства
-                    iconContent: json.markers[i].icontext, 
-					hintContent: json.markers[i].hinttext,
-                    balloonContentBody: json.markers[i].balloontext                   
-					});
-
-				// Добавляем метку на карту
-				myMap.geoObjects.add(myPlacemark);  
-        }
-    }
-    );
-    alert('JSON окончена');
-}));
-
 $('#redit').click((function()
 {
    location.href = $(this).attr('data-href');
 }));
-
+$('#chart').click((function()
+{
+    alert("Entered");
+    ChartShow();
+}));
 $('#closerko').click((function()
 {
    PopUpHide();
